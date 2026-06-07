@@ -119,7 +119,8 @@ exports.submitAttendance = async (req, res) => {
 // @desc    Submit/Update grades for a course
 exports.submitGrades = async (req, res) => {
   const { records } = req.body; // records = [{ enrollment_id, grade }]
-
+  // console.log(records);
+  
   try {
     for (const rec of records) {
       await pool.query(
@@ -132,3 +133,4 @@ exports.submitGrades = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
+
