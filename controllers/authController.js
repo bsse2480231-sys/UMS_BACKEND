@@ -58,7 +58,6 @@ exports.forgotPassword = async (req, res) => {
 // @desc    Get logged-in user's profile based on token
 exports.getMe = async (req, res) => {
   try {
-    // req.user is set by the protect middleware
     const { user_id, role } = req.user;
 
     let result;

@@ -1,7 +1,6 @@
-const pool = require('../config/db');
+const pool = require('../config/db')
 const generateId = require('../utils/generateId');
 
-// Get all course assignments
 exports.getTeachings = async (req, res) => {
   try {
     const result = await pool.query(`

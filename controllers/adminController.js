@@ -1,7 +1,6 @@
 const pool = require('../config/db');
 const bcrypt = require('bcryptjs');
 
-// @desc    Get all admins
 exports.getAdmins = async (req, res) => {
   try {
     const result = await pool.query(
@@ -13,7 +12,6 @@ exports.getAdmins = async (req, res) => {
   }
 };
 
-// @desc    Get single admin
 exports.getAdminById = async (req, res) => {
   try {
     const result = await pool.query(
@@ -27,11 +25,9 @@ exports.getAdminById = async (req, res) => {
   }
 };
 
-// @desc    Create admin
 exports.createAdmin = async (req, res) => {
   const { admin_id, first_name, last_name, email, password, role, department_id } = req.body;
   try {
-    // 1. Hash Password
     const salt = await bcrypt.genSalt(10);
     const password_hash = await bcrypt.hash(password, salt);
 
